@@ -18,6 +18,10 @@ protected void configure(AuthenticationManagerBuilder auth)则是注入自定义
 `@EnableGlobalMethodSecurity(prePostEnabled = true)`
 才能启动安全配置，以及启动方法安全、即可以在方法上面鉴权
 
+通过`@PreAuthorize("hasAnyRole('ROLE_super')")` 或是`@PreAuthorize("hasAuthority('level1')")` 可以实现方法上通过角色还是权限鉴权。
+注解也可以置于类上。</br>
+需注意的一点是 `hasRole` 表达式认为每个角色名字前都有一个前缀 `'ROLE_'`数据库中存储的也是 `ROLE_super`
+
 -</br>
 通过thymeleaf 与spring security 结合实现的页面的权限控制，什么角色可以看见什么样的数据</br>
 通过导入的命名空间：`xmlns:sec="http://www.w3.org/1999/xhtml"` </br>
